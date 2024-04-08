@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mathshark.databinding.ActivityLessonBinding
-import com.example.mathshark.ui.QuestionActivity
 
 class LessonActivity : AppCompatActivity() {
 

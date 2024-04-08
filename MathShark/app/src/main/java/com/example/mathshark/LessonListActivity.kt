@@ -1,11 +1,8 @@
 package com.example.mathshark
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import com.example.mathshark.databinding.ActivityLessonListBinding
-import com.example.mathshark.ui.MyAdapter
 import java.util.Scanner
 
 class LessonListActivity : AppCompatActivity() {
