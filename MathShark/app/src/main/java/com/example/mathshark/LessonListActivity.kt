@@ -2,41 +2,53 @@ package com.example.mathshark
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mathshark.databinding.ActivityLessonListBinding
+import com.example.mathshark.ui.discover.DashboardFragment
 import java.util.Scanner
 
 class LessonListActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLessonListBinding
-    val lessonInfo = mutableListOf<MutableList<String>>()
-
-    val topics = arrayListOf<String>("Ecuacion Lineal", "Ecuacion Cuadratica")
+    val lessonInfo: ArrayList<Lesson> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLessonListBinding.inflate(layoutInflater)
+        supportActionBar?.hide()
         setContentView(binding.root)
 
-        binding.titleTopic.text = "Ecuaciones"
+        val title = intent.getStringExtra("Titulo")
+        val description = intent.getStringExtra("Descripcion")
+
+        binding.titleTopic.text = title
+        binding.descriptionLesson.text = description
 
         readLessonInfo()
 
-        val adapter = MyAdapter(this, lessonInfo)
+        val adapter = LessonAdapter(this, lessonInfo)
         binding.lessonList.adapter = adapter
+        binding.lessonList.layoutManager = LinearLayoutManager(this)
     }
-
-
-
 
     fun readLessonInfo() {
-        val input = Scanner(resources.openRawResource(R.raw.lessoninfo))
-        var count = 0
-        while (input.hasNextLine()) {
-            val data = input.nextLine().split("|")
-            lessonInfo.add(data.toMutableList())
-            count += 1
+        val input = Scanner(resources.openRawResource(R.raw.lessonnfo))
+            while (input.hasNextLine()) {
+                val data = input.nextLine().split("|")
+
+                val id = data[0].toInt()
+                val titulo = data[1]
+                val descripcion = data[2]
+                val imagen = data[3]
+                val informacion = data[4]
+
+                val lesson = Lesson(id, titulo, descripcion, imagen, informacion)
+                lessonInfo.add(lesson)
+            }
+                input.close()
         }
-        input.close()
-    }
 
 }
+
+
+data class Lesson(val id: Int, val titulo: String, val descripcion: String, val imagen: String, val informacion: String)

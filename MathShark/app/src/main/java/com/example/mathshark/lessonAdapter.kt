@@ -5,40 +5,38 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mathshark.databinding.ListLessonBinding
+import com.robertlevonyan.views.expandable.ExpandableIconStyles
+import kotlin.collections.ArrayList
 
-class MyAdapter(private val context: Context, private val dataList: MutableList<MutableList<String>>) :
-    BaseAdapter() {
+class LessonAdapter(private val context: Context, private val dataList: ArrayList<Lesson>) :
+    RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
 
-    override fun getCount(): Int {
-        return dataList.size
-    }
+    class LessonViewHolder(val binding: ListLessonBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun getItem(position: Int): Any {
-        return dataList[position]
-    }
-
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
-    }
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
         val binding = ListLessonBinding.inflate(LayoutInflater.from(context), parent, false)
+        return LessonViewHolder(binding)
+    }
 
-        val lessonData = getItem(position) as MutableList<String>
-        val title = lessonData[1]
-        val info = lessonData[2]
+    override fun onBindViewHolder(holder: LessonViewHolder, position: Int) {
+        val currentLesson = dataList[position]
 
-        binding.header.titleLesson.text = title
-        binding.content.infoLesson.text = info
+        holder.binding.header.titleLesson.text = currentLesson.titulo
+        holder.binding.content.infoLesson.text = currentLesson.descripcion
 
-        binding.content.lessonButton.setOnClickListener(){
+        holder.binding.content.lessonButton.setOnClickListener {
             val intent = Intent(context, LessonActivity::class.java)
+            intent.putExtra("titulo", currentLesson.titulo)
+            intent.putExtra("imagen", currentLesson.imagen)
+            intent.putExtra("informacion", currentLesson.informacion)
             context.startActivity(intent)
         }
 
+    }
 
-        return binding.root
+    override fun getItemCount(): Int {
+        return dataList.size
     }
 }

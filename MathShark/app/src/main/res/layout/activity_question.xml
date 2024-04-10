@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestionActivity">
+    android:background="#333333"
+    tools:context=".QuestionActivity"
+    android:fitsSystemWindows="true">
 
     <TextView
         android:id="@+id/titleQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColor="@color/white"
         android:text="titulo"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ejemplo de pregunta?"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleQuestion" />
@@ -39,17 +43,20 @@
             android:id="@+id/answer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="respuesta A" />
 
         <RadioButton
             android:id="@+id/answer2"
             android:layout_width="wrap_content"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="respuesta B" />
 
         <RadioButton
             android:id="@+id/answer3"
             android:layout_width="wrap_content"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="respuesta C" />
 
@@ -57,6 +64,7 @@
             android:id="@+id/answer4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="respuesta D" />
 
     </RadioGroup>
