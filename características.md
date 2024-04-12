@@ -12,20 +12,23 @@ y demas articulos relacionados encontrados en la web.
 
 ## Funcionalidades de usuario
 
-Mathshark le permitirá al usuario aprender y fortalecer sus conocimientos del mundo de las matematicas, desde los temas mas basicos 
-hasta los mas avanzados, todo de forma sencila, divertida, y completa para todo publico. 
-El usuario podrá:
+Mathshark le permitirá al usuario aprender y fortalecer sus conocimientos del mundo de las matemáticas, desde los temas más básicos hasta los más avanzados, todo de forma sencilla, divertida y completa para todo público. El usuario podrá:
 
-1. acceder a cursos interactivos, de la forma mas sencilla e intuitiva posible.
+1. Acceder a cursos interactivos, de la forma más sencilla e intuitiva posible.
 
-2. fortalecer sus conocimientos por medio de preguntas sencillas al finalizar cada tema, estas preguntas se mostraran como una evaluacion y comprension del tema visto.
+2. Fortalecer sus conocimientos por medio de preguntas sencillas al finalizar cada tema; estas preguntas se mostrarán como una evaluación y comprensión del tema visto.
 
-3. acceder al syllabus del tema que se está viendo, asi como su dificultad representada con una imagen de referencia.
+3. Acceder al syllabus del tema que se está viendo, así como su dificultad representada con una imagen de referencia.
 
-4. entrenar cada dia con un sistema de pregunta diaria, y con un sistema de contador de preguntas diarias completadas. 
+4. Entrenar cada día con un sistema de pregunta diaria, y con un sistema de contador de preguntas diarias completadas.
 
-5. crear y acceder a un perfil de usuario, con sus respectivas funciones como insignias y progreso.  
+5. Crear y acceder a un perfil de usuario, con sus respectivas funciones como insignias y progreso.
 
-6. acceder a enlaces a recursos adicionales como videos explicativos, ejercicios adicionales, o artículos relacionados podría enriquecer la experiencia de aprendizaje.
+6. Acceder a enlaces a recursos adicionales como videos explicativos, ejercicios adicionales, o artículos relacionados podría enriquecer la experiencia de aprendizaje.
 
-7. observar qué temas ha completado y cuáles podrían necesitar más práctica.
+7. Observar qué temas ha completado y cuáles podrían necesitar más práctica.
+
+
+
+
+
