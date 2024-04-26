@@ -1,0 +1,7 @@
+1|Suma| Es una operación matemática básica que consiste en combinar dos o más cantidades para obtener un total. Se representa con el símbolo "+". Por ejemplo, 2 + 3 = 5.|ic_suma|suma
+2|Resta|Es una operación matemática que consiste en encontrar la diferencia entre dos cantidades. Se representa con el símbolo "-". Por ejemplo, 5 - 3 = 2.|ic_resta|resta
+3|Producto|Es una operación matemática que consiste en sumar un número consigo mismo un cierto número de veces. Se representa con el símbolo "×" o "*". Por ejemplo, 2 × 3 = 6.|ic_multiplicacion|multiplicacion
+4|Division| Es una operación matemática que consiste en distribuir una cantidad en partes iguales o encontrar cuántas veces un número cabe en otro. Se representa con el símbolo "÷" o "/". Por ejemplo, 6 ÷ 2 = 3.|ic_division|division
+5|Fraccion|Es una expresión que representa una parte de un todo. Consiste en dos números, uno sobre el otro, separados por una línea horizontal. El número superior se llama numerador y el inferior denominador. Por ejemplo, 1/2 representa la mitad de algo.|ic_fraccion|fraccion
+6|Potencia|Es una operación matemática que indica cuántas veces multiplicar un número por sí mismo. Se representa con el número base elevado a un exponente. Por ejemplo, 2^3 = 8 (2 elevado a la tercera potencia es igual a 8).|ic_potencia|potencia
+7|Raiz|Es una operación matemática que busca el número que, multiplicado por sí mismo un cierto número de veces, da como resultado un valor dado. Se representa con el símbolo "v". Por ejemplo, v9 = 3 (la raíz cuadrada de 9 es igual a 3).|ic_raiz|raiz
