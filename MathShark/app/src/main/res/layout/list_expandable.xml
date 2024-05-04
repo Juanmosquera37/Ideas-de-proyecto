@@ -6,7 +6,7 @@
     android:background="#333333"
     android:layout_margin="5dp">
 
-    <TextView
+        <TextView
         android:id="@+id/titleLesson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:id="@+id/lessonButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:backgroundTint="#2965CC"
             android:text="Comenzar"
             android:textColor="#FFFFFF" />

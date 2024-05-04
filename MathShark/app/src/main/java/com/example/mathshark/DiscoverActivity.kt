@@ -2,8 +2,10 @@ package com.example.mathshark
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import com.example.mathshark.databinding.ActivityDiscoverBinding
 import com.example.mathshark.lessonList.LessonListFragment
+import com.example.mathshark.ui.discover.DiscoverFragment.LessonDataInfo
 
 class DiscoverActivity : AppCompatActivity() {
 
@@ -11,17 +13,29 @@ class DiscoverActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityDiscoverBinding.inflate(layoutInflater)
+		binding = ActivityDiscoverBinding.inflate(layoutInflater)
         supportActionBar?.hide()
         setContentView(binding.root)
 
-        val title = intent.getStringExtra("Titulo")
-        val description = intent.getStringExtra("Descripcion")
+        val title = intent.getStringExtra("title")
+        val description = intent.getStringExtra("description")
+        val lessons = intent.getSerializableExtra("lessons") as? List<LessonDataInfo> // Obteniendo el arreglo
 
-        val fragment = LessonListFragment.newInstance(title, description)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_discover, fragment)
-            .commit()
+        if (lessons != null) {
+            val bundle = Bundle()
+            bundle.putString("title", title)
+            bundle.putString("description", description)
+            bundle.putSerializable("lessons", ArrayList(lessons))
+
+            val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            val lessonListFragment = LessonListFragment().apply {
+                arguments = bundle
+            }
+
+            fragmentTransaction.replace(R.id.fragment_discover, lessonListFragment)
+            fragmentTransaction.commit()
+        } else {
+            throw IllegalStateException("No lessons data found to pass to fragment")
+        }
     }
 }

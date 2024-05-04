@@ -7,12 +7,12 @@
     tools:context="lesson.LessonFragment"
     android:fitsSystemWindows="true">
 
-    <com.google.android.exoplayer2.ui.PlayerView
+    <VideoView
         android:id="@+id/videoLesson"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/titleLesson"
@@ -28,14 +28,34 @@
 
     <TextView
         android:id="@+id/infoLesson"
-        android:layout_width="wrap_content"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleLesson" />
+
+    <CheckBox
+        android:id="@+id/favoriteIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/style_favorite_icon"
+        app:layout_constraintEnd_toStartOf="@id/SavedIcon"
+        app:layout_constraintTop_toBottomOf="@id/videoLesson"
+        />
+
+    <CheckBox
+        android:id="@+id/SavedIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/style_save_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/videoLesson"
+        />
 
     <ImageView
         android:id="@+id/imageLesson"
@@ -45,7 +65,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoLesson"
+        android:contentDescription="imagen de la leccion"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        app:layout_constraintBottom_toTopOf="@id/quizButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageLesson" />
 
     <Button
         android:id="@+id/quizButton"

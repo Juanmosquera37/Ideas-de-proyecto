@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mathshark.R
 import com.example.mathshark.databinding.ListExpandableBinding
 import com.example.mathshark.lesson.LessonFragment
-import com.example.mathshark.lessonList.LessonListFragment
+import com.example.mathshark.ui.discover.DiscoverFragment.LessonDataInfo
 
-class LessonAdapter(private val context: Context, private val datalist: ArrayList<LessonListFragment.LessonDataInfo>) : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
+class LessonAdapter(
+    private val context: Context,
+    private val datalist: ArrayList<LessonDataInfo>
+) : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
 
     inner class LessonViewHolder(val binding: ListExpandableBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -26,11 +29,11 @@ class LessonAdapter(private val context: Context, private val datalist: ArrayLis
 
         if (currentLesson.isExpanded) {
             holder.binding.expandableLayout.visibility = View.VISIBLE
-            holder.binding.lessonButton.setOnClickListener {
 
+            holder.binding.lessonButton.setOnClickListener {
                 val fragmentManager = (context as FragmentActivity).supportFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
-                val fragment = LessonFragment.newInstance(currentLesson.titulo, currentLesson.imagen, currentLesson.informacion)
+                val fragment = LessonFragment.newInstance(currentLesson.titulo, currentLesson.imagen, currentLesson.informacion, currentLesson.favorite, currentLesson.save)
 
                 fragmentTransaction.replace(R.id.fragment_discover, fragment)
                 fragmentTransaction.addToBackStack(null)
@@ -50,4 +53,3 @@ class LessonAdapter(private val context: Context, private val datalist: ArrayLis
         return datalist.size
     }
 }
-
