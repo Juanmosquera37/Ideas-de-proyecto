@@ -3,10 +3,10 @@
 	<p> por esto la paleta de colores elejido utiliza un tema tema oscuro para no fastidiar la vista. </p>
 		<h2> 1. Menu de inicio </h2>
 			<p><blockquote> En el menu principal el usuario podra acceder a la mision o prueba diaria de conocimiento </blockquote></p>
-			<center><img src="img for ui/home_activity.png" width="280px" height="520px"></center>
+			<center><img src="img for ui/home_fragment.png" width="280px" height="520px"></center>
 		<h2> 2. Prueba diaria </h2>
 			<p><blockquote> La preuna dariaria consiste unicamente de una o ods preguntas relacionadas con los temas vistos hasta ese momento </blockquote></p>
-			<center><img src="img for ui/daily_quiz.png" width="280px" height="520px"></center>
+			<center><img src="img for ui/daily_fragment.png" width="280px" height="520px"></center>
 		<h2> 3. Descubrir </h2>
 			<p><blockquote> En este apartado el usuario podra elegir el tema de su interes para aprender </blockquote></p>
 			<center><img src="img for ui/discover_fragment.png" width="280px" height="520px"></center>
