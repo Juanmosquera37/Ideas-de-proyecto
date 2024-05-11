@@ -23,9 +23,4 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_library" />
 
-    <fragment
-        android:id="@+id/navigation_user"
-        android:name="com.example.mathshark.ui.user.UserFragment"
-        android:label="@string/title_user"
-        tools:layout="@layout/fragment_user"/>
 </navigation>

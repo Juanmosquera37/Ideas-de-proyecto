@@ -1,22 +1,22 @@
 package com.example.mathshark.ui.discover
 
+import ThemeListAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.mathshark.R
 import com.example.mathshark.databinding.FragmentDiscoverBinding
-import com.example.mathshark.ThemeAdapter
-import java.io.Serializable
-import java.util.Scanner
+import com.example.mathshark.index.SharedDataViewModel
 
 class DiscoverFragment : Fragment() {
 
+    private lateinit var sharedDataViewModel: SharedDataViewModel
     private var _binding: FragmentDiscoverBinding? = null
-    val listTheme: ArrayList<ThemeDataInfo> = ArrayList()
+    private lateinit var themeListAdapter: ThemeListAdapter
 
     private val binding get() = _binding!!
 
@@ -25,22 +25,29 @@ class DiscoverFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        readThemeInfo()
-		readLessonInfo()
-
-        val discoverViewModel =
-            ViewModelProvider(this).get(DiscoverViewModel::class.java)
-
         _binding = FragmentDiscoverBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        sharedDataViewModel = ViewModelProvider(requireActivity()).get(SharedDataViewModel::class.java)
 
-
-        val adapter = ThemeAdapter(requireContext(), listTheme)
-        binding.listTheme.adapter = adapter
+        themeListAdapter = ThemeListAdapter(requireContext(), listOf())
+        binding.listTheme.adapter = themeListAdapter
         binding.listTheme.layoutManager = GridLayoutManager(requireContext(), 2)
-        return root
 
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                themeListAdapter.filter(newText ?: "")
+                return true
+            }
+        })
+
+        sharedDataViewModel.themes.observe(viewLifecycleOwner) { themes ->
+            themeListAdapter.updateData(themes)
+        }
+
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -48,69 +55,5 @@ class DiscoverFragment : Fragment() {
         _binding = null
     }
 
-    fun readThemeInfo() {
-        val input = Scanner(resources.openRawResource(R.raw.themeinfo))
-        while (input.hasNextLine()) {
-            val data = input.nextLine().split("|")
-
-            val id = data[0].toInt()
-            val titulo = data[1]
-            val descripcion = data[2]
-            val icono = data[3]
-            val tema = data[4]
-            val color = data[5]
-
-            val theme = ThemeDataInfo(id, titulo, descripcion, icono, tema, mutableListOf(), color)
-            listTheme.add(theme)
-        }
-        input.close()
-    }
-
-    fun readLessonInfo() {
-        val input = Scanner(resources.openRawResource(R.raw.lessoninfo))
-        while (input.hasNextLine()) {
-            val data = input.nextLine().split("|")
-
-            val id = data[0].toInt()
-            val titulo = data[1]
-            val descripcion = data[2]
-            val imagen = data[3]
-            val informacion = data[4]
-            val isExpanded = data[5].toBoolean()
-            val themeId = data[6].toInt()
-            val save = data[7].toBoolean()
-            val favorite = data[8].toBoolean()
-
-            val lesson = LessonDataInfo(id, titulo, descripcion, imagen, informacion, isExpanded, save, favorite)
-            val theme = listTheme.find { it.id == themeId }
-            if (theme != null) {
-                if (!theme.lecciones.any { it.id == id }) {
-                    theme.lecciones.add(lesson)
-                }
-            }
-        }
-        input.close()
-    }
-
-    data class ThemeDataInfo(
-        val id: Int,
-        val titulo: String,
-        val descripcion: String,
-        val icono: String,
-        val tema: String,
-        val lecciones: MutableList<LessonDataInfo>,
-        val color: String
-        ) : Serializable
-
-    data class LessonDataInfo(
-        val id: Int,
-        val titulo: String,
-        val descripcion: String,
-        val imagen: String,
-        val informacion: String,
-        var isExpanded: Boolean,
-        var save: Boolean,
-        var favorite: Boolean
-    ) : Serializable
 }
 
