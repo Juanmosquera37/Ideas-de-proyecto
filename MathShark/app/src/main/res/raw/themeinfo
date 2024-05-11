@@ -1,0 +1,18 @@
+1|Suma| Es una operación matemática básica que combina dos o más cantidades para obtener un total. Se representa con "+". Por ejemplo, 2 + 3 = 5.|ic_suma|suma|#4CAF50
+2|Resta| Consiste en quitar una cantidad de otra para obtener la diferencia. Se representa con "-". Por ejemplo, 7 - 4 = 3.|ic_resta|resta|#4CAF50
+3|Multiplicación| Es la operación que suma un número consigo mismo varias veces. Se representa con "x" o "*". Por ejemplo, 3 x 4 = 12.|ic_multiplicacion|multiplicacion|#689F38
+4|División| Operación que busca cuántas veces un número cabe en otro o cómo se distribuye entre varias partes. Se representa con "/". Por ejemplo, 12 / 4 = 3.|ic_division|division|#689F38
+5|Potencia| Consiste en elevar un número a la potencia de otro. Por ejemplo, 3^2 = 9.|ic_potencia|potencias|#8BC34A
+6|Raíz| La raíz cuadrada u otras raíces determinan qué número multiplicado por sí mismo cierto número de veces da como resultado un número específico. Por ejemplo, √16 = 4.|ic_raiz|raices|#8BC34A
+7|Fracción| Una fracción representa una parte de un todo o una división entre dos números. Por ejemplo, en la fracción 3/4, el numerador es 3 y el denominador 4.|ic_fraccion|fracciones|#CDDC39
+8|Ecuación| Una ecuación es una igualdad matemática que contiene incógnitas. El objetivo es encontrar el valor de las incógnitas. Por ejemplo, 2x + 3 = 7.|ic_ecuaciones|ecuaciones|#CDDC39
+9|Desigualdad| Son expresiones matemáticas que muestran la relación entre dos valores cuando no son iguales. Se representan con ">", "<", "≥", "≤".|ic_desigualdades|desigualdades|#FFEB3B
+10|Función| Una función es una relación entre dos conjuntos, donde cada elemento del primer conjunto está asociado con un único elemento del segundo conjunto. Por ejemplo, y = 2x + 1.|ic_funciones|funciones|#FFC107
+11|Matriz| Una matriz es una disposición rectangular de números u otros objetos matemáticos. Se usa en álgebra lineal y representa sistemas de ecuaciones. Por ejemplo, una matriz 2x2: [[1, 2], [3, 4]].|ic_matrices|matrices|#FFC107
+12|Probabilidad| La probabilidad estudia la incertidumbre y las posibilidades de que ocurra un evento. Se mide entre 0 y 1. Por ejemplo, la probabilidad de obtener un seis al lanzar un dado justo es 1/6.|ic_probabilidad|probabilidades|#FF9800
+13|Logaritmo| El logaritmo determina cuántas veces un número debe multiplicarse para obtener otro número. Por ejemplo, log_2(8) = 3.|ic_logaritmo|logaritmo|#FF9800
+14|Trigonometría| Estudia las relaciones entre los lados y ángulos de los triángulos. Incluye seno, coseno y tangente.|ic_trigonometria|trigonometría|#FF5722
+15|Derivada| La derivada mide la tasa de cambio instantánea de una función. Por ejemplo, si f(x) = x^2, su derivada es f'(x) = 2x.|ic_derivada|derivada|#FF5722
+16|Integral| Calcula el área bajo una curva o entre dos puntos en un gráfico. Se puede usar para determinar acumulaciones. Hay dos tipos principales: integrales indefinidas y definidas.|ic_integral|integral|#F44336
+17|Vectores| Los vectores tienen magnitud y dirección. Se usan para representar cantidades como fuerza, velocidad, o desplazamiento.|ic_vector|vectores|#F44336
+18|Conjuntos| Un conjunto es una colección de elementos o números. Se pueden realizar operaciones como unión, intersección y diferencia.|ic_conjunto|conjuntos|#F44336
