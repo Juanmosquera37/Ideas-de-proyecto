@@ -1,4 +1,4 @@
-MathShark es una aplicacion para poder aprender de una manera mas sencilla diversas temanticas relaciondas con el mundo de matematica
+MathShark es una aplicación para poder aprender de una manera más sencilla diversas temáticas relacionadas con el mundo de la matemática.
 
 Proyecto realizado por:
 - Jefferson Armando Valero Huertas (jvalero70@uan.edu.co)
