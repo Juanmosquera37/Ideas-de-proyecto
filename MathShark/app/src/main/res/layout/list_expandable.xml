@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#333333"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/titleLesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:layout_margin="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    <LinearLayout
+        android:id="@+id/expandableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="8dp"
+        android:background="#2C2C2C"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/infoLesson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:text="TextView"
+            android:textColor="#A0A0A0" />
+
+        <Button
+            android:id="@+id/lessonButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="#2965CC"
+            android:text="Comenzar"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>
