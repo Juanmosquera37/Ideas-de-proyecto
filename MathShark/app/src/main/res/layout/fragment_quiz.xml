@@ -12,64 +12,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textSize="32dp"
         android:textColor="#4D6FD5"
-        android:text="Titulo"
+        android:text="@string/cuestionario"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/questionText"
+    <ImageButton
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ejemplo de pregunta?"
-        android:textColor="#FFFFFF"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_back_arrow"
+        android:background="#00ffffff"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleQuestion" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="backarrow"/>
 
-    <RadioGroup
-        android:id="@+id/groupAnswer"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_margin="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/questionText"
+    <TextView
+        android:id="@+id/descriptionQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/titleQuestion"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="41dp" >
-
-        <RadioButton
-            android:id="@+id/answer1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#A0A0A0"
-            android:text="respuesta A" />
-
-        <RadioButton
-            android:id="@+id/answer2"
-            android:layout_width="wrap_content"
-            android:textColor="#A0A0A0"
-            android:layout_height="wrap_content"
-            android:text="respuesta B" />
-
-        <RadioButton
-            android:id="@+id/answer3"
-            android:layout_width="wrap_content"
-            android:textColor="#A0A0A0"
-            android:layout_height="wrap_content"
-            android:text="respuesta C" />
-
-        <RadioButton
-            android:id="@+id/answer4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#A0A0A0"
-            android:text="respuesta D" />
-
-    </RadioGroup>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/quizRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="520dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/descriptionQuiz"/>
 
-
+    <Button
+        android:id="@+id/quizButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Revisar"
+        android:backgroundTint="#2965CC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizRecyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

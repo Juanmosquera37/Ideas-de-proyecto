@@ -1,6 +1,6 @@
 package com.example.mathshark.ui.discover
 
-import ThemeAdapter
+import ThemeListAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +16,7 @@ class DiscoverFragment : Fragment() {
 
     private lateinit var sharedDataViewModel: SharedDataViewModel
     private var _binding: FragmentDiscoverBinding? = null
-    private lateinit var themeAdapter: ThemeAdapter
+    private lateinit var themeListAdapter: ThemeListAdapter
 
     private val binding get() = _binding!!
 
@@ -28,8 +28,8 @@ class DiscoverFragment : Fragment() {
         _binding = FragmentDiscoverBinding.inflate(inflater, container, false)
         sharedDataViewModel = ViewModelProvider(requireActivity()).get(SharedDataViewModel::class.java)
 
-        themeAdapter = ThemeAdapter(requireContext(), listOf())
-        binding.listTheme.adapter = themeAdapter
+        themeListAdapter = ThemeListAdapter(requireContext(), listOf())
+        binding.listTheme.adapter = themeListAdapter
         binding.listTheme.layoutManager = GridLayoutManager(requireContext(), 2)
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -38,13 +38,13 @@ class DiscoverFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                themeAdapter.filter(newText ?: "")
+                themeListAdapter.filter(newText ?: "")
                 return true
             }
         })
 
         sharedDataViewModel.themes.observe(viewLifecycleOwner) { themes ->
-            themeAdapter.updateData(themes)
+            themeListAdapter.updateData(themes)
         }
 
         return binding.root

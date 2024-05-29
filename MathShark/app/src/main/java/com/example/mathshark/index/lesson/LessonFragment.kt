@@ -10,8 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.webkit.WebChromeClient
+import android.webkit.WebViewClient
 import android.widget.Toast
+import com.example.mathshark.R
 import com.example.mathshark.index.SharedDataViewModel
+import com.example.mathshark.index.quiz.QuizFragment
+import com.squareup.picasso.Picasso
 
 class LessonFragment : Fragment() {
 
@@ -39,43 +43,55 @@ class LessonFragment : Fragment() {
 
         sharedDataViewModel = ViewModelProvider(requireActivity()).get(SharedDataViewModel::class.java)
 
-
         val lessonId = arguments?.getInt(ARG_LESSON_ID) ?: 0
         val lesson = sharedDataViewModel.lessons.value?.find { it.id == lessonId }
 
+        binding.backButton.setOnClickListener{
+            requireActivity().onBackPressed()
+        }
 
         binding.titleLesson.text = lesson?.titulo ?: "Título no encontrado"
         binding.infoLesson.text = lesson?.informacion ?: "informacion no encontrada"
 
+        val imageUrl = lesson?.imageUrl ?: ""
+        Picasso.get().load(imageUrl).into(binding.imageLesson)
 
-        val videoUrl = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/H2Uz1UpqByg?si=S3QLpeO5GA3YdZkp\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen></iframe>"
+        val videoUrl = lesson?.video ?: ""
         binding.videoLesson.loadData(videoUrl, "text/html","utf-8")
         binding.videoLesson.settings.javaScriptEnabled = true
-        binding.videoLesson.webChromeClient = WebChromeClient()
-
+        binding.videoLesson.webViewClient = WebViewClient()
 
         binding.favoriteIcon.isChecked = lesson?.favorite ?: false
-        binding.SavedIcon.isChecked = lesson?.save ?: false
-
         binding.favoriteIcon.setOnCheckedChangeListener { _, isChecked ->
             val color = if (isChecked) "#FF0000" else "#FFFFFF"
             binding.favoriteIcon.buttonTintList = ColorStateList.valueOf(Color.parseColor(color))
         }
 
+        binding.SavedIcon.isChecked = lesson?.save ?: false
         binding.SavedIcon.setOnCheckedChangeListener { _, isChecked ->
             val color = if (isChecked) "#0000FF" else "#FFFFFF"
             binding.SavedIcon.buttonTintList = ColorStateList.valueOf(Color.parseColor(color))
         }
 
         binding.quizButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Quiz no implementado", Toast.LENGTH_SHORT).show()
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            val quizFragment = QuizFragment.newInstance(lessonId)
+            fragmentTransaction.replace(R.id.fragment_discover, quizFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
 
-        return _binding!!.root
+        return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
+        val lessonId = arguments?.getInt(ARG_LESSON_ID) ?: 0
+        val lesson = sharedDataViewModel.lessons.value?.find { it.id == lessonId}
+        lesson?.favorite = binding.favoriteIcon.isChecked
+        lesson?.save = binding.SavedIcon.isChecked
+        sharedDataViewModel.saveState()
         _binding = null
     }
 }

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mathshark.databinding.FragmentLessonListBinding
 import com.example.mathshark.index.SharedDataViewModel
-import com.example.mathshark.adapter.LessonAdapter
+import com.example.mathshark.adapter.LessonListAdapter
 import androidx.lifecycle.ViewModelProvider
 
 class LessonListFragment : Fragment() {
@@ -25,14 +25,23 @@ class LessonListFragment : Fragment() {
 
         sharedDataViewModel = ViewModelProvider(requireActivity()).get(SharedDataViewModel::class.java)
 
+
         val themeId = arguments?.getInt("theme_id") ?: 0
         val theme = sharedDataViewModel.themes.value?.find { it.id == themeId }
+
         val lessons = theme?.lecciones ?: emptyList()
 
         binding.titleTopic.text = theme?.titulo ?: "Título por defecto"
         binding.descriptionLesson.text = theme?.descripcion ?: "Descripción por defecto"
 
-        val adapter = LessonAdapter(requireContext(), ArrayList(lessons))
+        binding.backButton.setOnClickListener{
+            requireActivity().onBackPressed()
+        }
+
+        val lessonList = ArrayList(lessons)
+
+
+        val adapter = LessonListAdapter(requireContext(), lessonList, sharedDataViewModel)
         binding.lessonList.layoutManager = LinearLayoutManager(requireContext())
         binding.lessonList.adapter = adapter
 
@@ -44,6 +53,7 @@ class LessonListFragment : Fragment() {
         _binding = null
     }
 }
+
 
 
 

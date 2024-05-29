@@ -1,21 +1,25 @@
 package com.example.mathshark.ui.home
 
+
+
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.FragmentTransaction
+import com.example.mathshark.R
 import com.example.mathshark.databinding.FragmentHomeBinding
+import com.example.mathshark.index.DailyQuestion.DailyQuestionFragment
+import com.example.mathshark.index.HomeActivity
+import com.example.mathshark.index.LessonActivity
 
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,16 +27,15 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val buttonDailyQuestion: Button = binding.button
+        buttonDailyQuestion.setOnClickListener {
+            val intent = Intent(context, HomeActivity::class.java)
+            startActivity(intent)
         }
+
         return root
     }
 

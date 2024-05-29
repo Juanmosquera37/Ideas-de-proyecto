@@ -9,10 +9,10 @@ import com.example.mathshark.databinding.ListThemeBinding
 import com.example.mathshark.index.LessonActivity
 import com.example.mathshark.index.SharedDataViewModel
 
-class ThemeAdapter(
+class ThemeListAdapter(
     private val context: Context,
     private var dataList: List<SharedDataViewModel.ThemeDataInfo>
-) : RecyclerView.Adapter<ThemeAdapter.ThemeViewHolder>() {
+) : RecyclerView.Adapter<ThemeListAdapter.ThemeViewHolder>() {
 
     private var originalData = dataList.toList()
 
