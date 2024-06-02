@@ -61,17 +61,6 @@ class LessonFragment : Fragment() {
         binding.videoLesson.settings.javaScriptEnabled = true
         binding.videoLesson.webViewClient = WebViewClient()
 
-        binding.favoriteIcon.isChecked = lesson?.favorite ?: false
-        binding.favoriteIcon.setOnCheckedChangeListener { _, isChecked ->
-            val color = if (isChecked) "#FF0000" else "#FFFFFF"
-            binding.favoriteIcon.buttonTintList = ColorStateList.valueOf(Color.parseColor(color))
-        }
-
-        binding.SavedIcon.isChecked = lesson?.save ?: false
-        binding.SavedIcon.setOnCheckedChangeListener { _, isChecked ->
-            val color = if (isChecked) "#0000FF" else "#FFFFFF"
-            binding.SavedIcon.buttonTintList = ColorStateList.valueOf(Color.parseColor(color))
-        }
 
         binding.quizButton.setOnClickListener {
             val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
@@ -87,11 +76,6 @@ class LessonFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        val lessonId = arguments?.getInt(ARG_LESSON_ID) ?: 0
-        val lesson = sharedDataViewModel.lessons.value?.find { it.id == lessonId}
-        lesson?.favorite = binding.favoriteIcon.isChecked
-        lesson?.save = binding.SavedIcon.isChecked
-        sharedDataViewModel.saveState()
         _binding = null
     }
 }

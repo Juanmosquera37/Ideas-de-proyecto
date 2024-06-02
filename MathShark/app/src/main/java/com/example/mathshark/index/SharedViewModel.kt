@@ -34,6 +34,15 @@ class SharedDataViewModel(application: Application) : AndroidViewModel(applicati
         restoreSavedState()
     }
 
+    fun getLastFavoriteLesson(): LessonDataInfo? {
+        return _lessons.value?.asReversed()?.find { it.favorite }
+    }
+
+    fun getLastSavedLesson(): LessonDataInfo? {
+        return _lessons.value?.asReversed()?.find { it.save }
+    }
+
+
     fun markCompletedLessons(currentLessonId: Int) {
         val allLessons = _lessons.value ?: return
         val currentLessonIndex = allLessons.indexOfFirst { it.id == currentLessonId }
@@ -182,13 +191,7 @@ class SharedDataViewModel(application: Application) : AndroidViewModel(applicati
         val video: String,
         val quiz: MutableList<QuizDataInfo> = mutableListOf()
     ) : Serializable
-    fun getLastFavoriteLesson(): LessonDataInfo? {
-        return _lessons.value?.findLast { it.favorite }
-    }
 
-    fun getLastSavedLesson(): LessonDataInfo? {
-        return _lessons.value?.findLast { it.save }
-    }
 
     data class QuizDataInfo(
         val id: Int,

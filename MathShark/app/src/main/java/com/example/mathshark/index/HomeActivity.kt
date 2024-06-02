@@ -1,15 +1,12 @@
 package com.example.mathshark.index
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.FragmentTransaction
 import com.example.mathshark.R
 import com.example.mathshark.databinding.ActivityHomeBinding
 import com.example.mathshark.index.DailyQuestion.DailyQuestionFragment
-import com.example.mathshark.index.lessonList.LessonListFragment
+
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -20,15 +17,12 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(binding.root)
 
-        val themeId = intent.getIntExtra("id", 0)
+        val fragment = DailyQuestionFragment.newInstance()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_Home, fragment)
+            .commit()
 
-        val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        val DailyQuestionFragment = DailyQuestionFragment().apply {
-            arguments = Bundle().apply {
-                putInt("theme_id", themeId)
-            }
-        }
-        fragmentTransaction.replace(R.id.fragment_Home, DailyQuestionFragment)
-        fragmentTransaction.commit()
+
+
     }
 }

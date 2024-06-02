@@ -14,6 +14,13 @@ import java.util.*
 
 class DailyQuestionFragment : Fragment() {
 
+    companion object {
+        @JvmStatic
+        fun newInstance(): DailyQuestionFragment {
+            return DailyQuestionFragment()
+        }
+    }
+
     private lateinit var titleQuestion: TextView
     private lateinit var groupAnswer: RadioGroup
     private lateinit var answer1: RadioButton

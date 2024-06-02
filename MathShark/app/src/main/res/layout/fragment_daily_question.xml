@@ -7,15 +7,29 @@
     tools:context=".index.DailyQuestion.DailyQuestionFragment">
 
     <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Las preguntas presentadas corresponden a los siguientes temas:\n- Suma\n- Resta\n- Multiplicación\n- División"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
         android:id="@+id/titleQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="184dp"
         android:text="Bienvenid@ a la Pregunta Diaria"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,8 +37,9 @@
         android:id="@+id/groupAnswer"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleQuestion">
 
@@ -62,11 +77,13 @@
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="Responder"
-        app:layout_constraintTop_toBottomOf="@+id/groupAnswer"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupAnswer"
+        android:backgroundTint="#558bd9"
+        android:textColor="#FFFFFF" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,23 +53,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleLesson" />
 
-    <CheckBox
-        android:id="@+id/favoriteIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:button="@drawable/style_favorite_icon"
-        app:layout_constraintEnd_toStartOf="@id/SavedIcon"
-        app:layout_constraintTop_toBottomOf="@id/videoLesson"
-        />
 
-    <CheckBox
-        android:id="@+id/SavedIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:button="@drawable/style_save_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoLesson"
-        />
 
     <ImageView
         android:id="@+id/imageLesson"

@@ -6,15 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/textHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to the Home Fragment"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -27,14 +19,46 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"/>
 
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="MathShark es una aplicación para poder aprender de una manera más sencilla diversas temáticas relacionadas con el mundo de la matemática."
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/inviteText"/>
+
+
+    <TextView
+        android:id="@+id/inviteText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Prueba tus conocimientos,\n¡Responde la pregunta diaria!"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descriptionText"/>
+
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="196dp"
         android:text="Pregunta Diaria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        android:backgroundTint="#558bd9"
+        android:textColor="#FFFFFF"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

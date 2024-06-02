@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathShark">
         <activity
+            android:name=".index.RecentActivity"
+            android:exported="false" />
+        <activity
             android:name=".index.HomeActivity"
             android:exported="false" />
         <activity
