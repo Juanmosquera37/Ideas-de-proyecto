@@ -20,6 +20,8 @@ MathShark permitirá al usuario aprender y fortalecer sus conocimientos del mund
 
 6. Progresar de manera lineal mediante un sistema de desbloqueo de lecciones dependiente de la finalización del cuestionario de la lección.
 
+7. Filtrar los temas por títulos gracias a una barra de búsqueda superior en el apartado de descubrir.
+
 
 
 
